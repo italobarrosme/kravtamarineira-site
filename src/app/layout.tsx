@@ -4,7 +4,6 @@ import '@/styles/main.scss'
 import { ReactNode } from 'react'
 import { NextAuthProvider } from '@/providers/auth'
 import { Metadata } from 'next'
-import { ToastProvider } from '@/providers/toast'
 import { Navigation } from '@/modules/Navigation'
 
 type Props = {
@@ -26,10 +25,10 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <NextAuthProvider>
         <body>
-          <ToastProvider>
+          <main className="min-h-screen-nav py-24">
             <Navigation />
-            <main className="min-h-screen-nav px-4 pt-24">{children}</main>
-          </ToastProvider>
+            {children}
+          </main>
         </body>
       </NextAuthProvider>
     </html>

@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSession, signIn, signOut } from 'next-auth/react'
 
 export const useMenuNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
-  const { data } = useSession()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -13,15 +11,30 @@ export const useMenuNav = () => {
 
   const menus = [
     {
-      name: 'Logout',
+      name: 'Conheça a academia',
       icon: 'bx:bx-home',
       onClick: () => {
-        signOut()
         setIsMenuOpen(false)
       },
     },
     {
-      name: 'Item',
+      name: 'O que é krav magá',
+      icon: 'bx:bx-home',
+      onClick: () => {
+        router.push('/')
+        setIsMenuOpen(false)
+      },
+    },
+    {
+      name: 'Instrutores',
+      icon: 'bx:bx-home',
+      onClick: () => {
+        router.push('/')
+        setIsMenuOpen(false)
+      },
+    },
+    {
+      name: 'Interessado em treinar',
       icon: 'bx:bx-home',
       onClick: () => {
         router.push('/')
@@ -33,8 +46,6 @@ export const useMenuNav = () => {
   return {
     menus,
     isMenuOpen,
-    signIn,
     toggleMenu,
-    data,
   }
 }
