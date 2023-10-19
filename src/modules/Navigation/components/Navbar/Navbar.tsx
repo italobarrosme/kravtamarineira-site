@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 import { cn } from '@/utils'
-=======
->>>>>>> 0d9fdb9bd2cb8de3efc612dfae33f6c78f589cd0
 import Link from 'next/link'
 
 type Menu = {
   name: string
   icon?: string
   href?: string
-<<<<<<< HEAD
   active: boolean
-=======
->>>>>>> 0d9fdb9bd2cb8de3efc612dfae33f6c78f589cd0
   onClick?: () => void
 }
 
@@ -31,14 +25,10 @@ export const Navbar = ({ menus }: NavbarProps) => {
         {menus.map((menu, index) => (
           <li
             key={index}
-<<<<<<< HEAD
             className={cn(
               'my-4 cursor-pointer flex-row items-center justify-between p-0 px-2 text-xs font-semibold text-brand-secondary hover:text-brand-accent hover:underline sm:flex',
               menu.active ? 'text-brand-accent' : 'text-brand-secondary'
             )}
-=======
-            className="my-4 cursor-pointer flex-row items-center justify-between p-0 px-2 text-xs font-semibold text-brand-secondary hover:text-white hover:underline sm:flex"
->>>>>>> 0d9fdb9bd2cb8de3efc612dfae33f6c78f589cd0
             onClick={menu.onClick}
           >
             {menu.name}
