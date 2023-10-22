@@ -25,7 +25,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <NextAuthProvider>
         <body>
-          <main className="min-h-screen-nav py-24">
+          <main className="min-h-screen-nav py-20">
             <Navigation />
             {children}
           </main>
