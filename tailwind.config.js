@@ -31,6 +31,9 @@ module.exports = {
         'screen-nav': 'calc(100vh - 5rem)',
         'screen-hero': 'calc(100vh - 20rem)',
       },
+      spacing: {
+        'center-x': '43%',
+      },
     },
   },
 }

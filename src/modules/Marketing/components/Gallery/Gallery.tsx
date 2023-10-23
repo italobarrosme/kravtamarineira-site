@@ -1,34 +1,17 @@
 'use client'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useSliderGallery } from './hooks/useSliderGallery'
 
 type GalleryProps = {
   images: string[]
 }
 
 export const Gallery = ({ images }: GalleryProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    )
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 7000)
-    return () => clearInterval(interval)
-  }, [images])
+  const { nextSlide, prevSlide, currentIndex } = useSliderGallery(images)
 
   return (
-    <div className="relative mb-4 w-full">
+    <div className="relative mb-4 w-full p-4">
       {images.map((image, index) => (
         <div
           key={index}
@@ -58,12 +41,12 @@ export const Gallery = ({ images }: GalleryProps) => {
       </button>
 
       {/* contador de imagens e current */}
-      <div className="absolute bottom-1 left-1/2 mr-8 flex flex-row rounded-full text-white">
+      <div className="absolute bottom-4 left-center-x mr-8 flex flex-row rounded-full text-white">
         {images.map((image, index) => (
           <span
             key={index}
             className={`${
-              index === currentIndex ? 'bg-brand-accent' : 'bg-brand-soft'
+              index === currentIndex ? 'bg-brand-accent' : 'bg-brand-light'
             } mx-1 flex h-2 w-2 flex-row rounded-full`}
           ></span>
         ))}
