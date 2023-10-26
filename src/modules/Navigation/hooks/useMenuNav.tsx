@@ -19,6 +19,7 @@ export const useMenuNav = () => {
       name: 'Conheça a academia',
       icon: 'bx:bx-home',
       active: verifyPath('/academia'),
+      accent: false,
       onClick: () => {
         router.push('/academia')
         setIsMenuOpen(false)
@@ -28,6 +29,7 @@ export const useMenuNav = () => {
       name: 'O que é krav magá',
       icon: 'bx:bx-home',
       active: verifyPath('/kravmaga'),
+      accent: false,
       onClick: () => {
         router.push('/kravmaga')
         setIsMenuOpen(false)
@@ -37,15 +39,17 @@ export const useMenuNav = () => {
       name: 'Instrutores',
       icon: 'bx:bx-home',
       active: verifyPath('/instrutores'),
+      accent: false,
       onClick: () => {
         router.push('/instrutores')
         setIsMenuOpen(false)
       },
     },
     {
-      name: 'Interessado em treinar',
+      name: 'Interessado em treinar?',
       icon: 'bx:bx-home',
       active: verifyPath('/interessado'),
+      accent: true,
       onClick: () => {
         router.push('/interessado')
         setIsMenuOpen(false)

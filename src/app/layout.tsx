@@ -3,9 +3,9 @@ import '@/styles/main.scss'
 
 import { Nunito } from 'next/font/google'
 import { ReactNode } from 'react'
-import { NextAuthProvider } from '@/providers/auth'
 import { Metadata } from 'next'
 import { Navigation } from '@/modules/Navigation'
+import { FooterTemplate } from '@/modules/Navigation/template/FooterTemplate'
 
 type Props = {
   children?: ReactNode
@@ -30,14 +30,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={nunito.className}>
-      <NextAuthProvider>
-        <body>
-          <main className="min-h-screen-nav pt-20">
-            <Navigation />
-            {children}
-          </main>
-        </body>
-      </NextAuthProvider>
+      <body>
+        <main className="min-h-screen-nav pt-20">
+          <Navigation />
+          {children}
+          <FooterTemplate />
+        </main>
+      </body>
     </html>
   )
 }
