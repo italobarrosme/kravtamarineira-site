@@ -16,8 +16,8 @@ type NavbarProps = {
 
 export const Navbar = ({ menus }: NavbarProps) => {
   return (
-    <nav className="absolute top-0 flex h-20 w-full items-center justify-between bg-brand-dark px-4 shadow-sm">
-      <Link href="/">
+    <nav className="absolute top-0 flex h-20 w-full items-center justify-center bg-brand-dark px-4 shadow-sm">
+      <Link href="/" className="mr-64">
         {/* <Image src={logo} alt="logo" width={180} height={180} /> */}
         <h1 className="text-brand-light">Academia de Krav maga</h1>
       </Link>
@@ -26,7 +26,7 @@ export const Navbar = ({ menus }: NavbarProps) => {
           <li
             key={index}
             className={cn(
-              'my-4 cursor-pointer flex-row items-center justify-between p-0 px-2 text-xs font-semibold text-brand-secondary hover:text-brand-accent hover:underline sm:flex',
+              'my-4 cursor-pointer flex-row items-center justify-between p-0 px-2 text-base font-semibold text-brand-secondary hover:text-brand-accent hover:underline sm:flex',
               menu.active ? 'text-brand-accent' : 'text-brand-secondary'
             )}
             onClick={menu.onClick}
