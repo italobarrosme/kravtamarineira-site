@@ -1,5 +1,6 @@
 import { cn } from '@/utils'
 import Link from 'next/link'
+import Image from 'next/image'
 
 type Menu = {
   name: string
@@ -11,16 +12,18 @@ type Menu = {
 }
 
 type NavbarProps = {
-  logo?: string
+  logo: string
   menus: Menu[]
 }
 
-export const Navbar = ({ menus }: NavbarProps) => {
+export const Navbar = ({ menus, logo }: NavbarProps) => {
   return (
-    <nav className="absolute top-0 flex h-20 w-full items-center justify-center gap-4 bg-brand-dark px-4 shadow-sm">
-      <Link href="/" className="mr-64">
-        {/* <Image src={logo} alt="logo" width={180} height={180} /> */}
-        <h1 className="text-brand-light">Academia de Krav maga</h1>
+    <nav className="absolute top-0 flex h-20 w-full items-center justify-center gap-4 bg-brand-light px-4 shadow-sm">
+      <Link href="/" className="mr-64 flex items-center">
+        <Image src={logo} alt="logo" width={100} height={100} />
+        <h1 className="font-semibold text-brand-dark">
+          Academia de Krav maga - Unidade Tamarineira
+        </h1>
       </Link>
       <ul className="flex flex-row gap-4">
         {menus.map((menu, index) => (
@@ -28,9 +31,9 @@ export const Navbar = ({ menus }: NavbarProps) => {
             key={index}
             className={cn(
               'my-4 cursor-pointer flex-row items-center justify-between p-0 px-2 text-base font-semibold text-brand-secondary hover:underline sm:flex',
-              menu.active ? 'underline' : 'text-brand-light',
+              menu.active ? 'underline' : 'text-brand-dark',
               menu.accent
-                ? 'bg-brand-accent text-brand-dark p-2 rounded-sm'
+                ? 'bg-brand-accent text-brand-light font-medium p-2 rounded-sm'
                 : ''
             )}
             onClick={menu.onClick}

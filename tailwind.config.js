@@ -19,8 +19,8 @@ module.exports = {
           light: '#fffef3',
           primary: '#0476D9',
           secondary: '#2987D9',
-          soft: '#A7CFF2',
-          accent: '#F22E3E',
+          soft: '#C5D5FF',
+          accent: '#3866F2',
         },
         transparent: 'transparent',
       },
@@ -29,7 +29,7 @@ module.exports = {
       },
       minHeight: {
         'screen-nav': 'calc(100vh - 5rem)',
-        'screen-hero': 'calc(100vh - 20rem)',
+        'screen-hero': 'calc(100vh - 15rem)',
       },
       spacing: {
         'center-x': '43%',

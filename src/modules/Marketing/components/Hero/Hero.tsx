@@ -13,14 +13,12 @@ export type HeroProps = {
 
 export const Hero = ({ infos, images }: HeroProps) => {
   return (
-    <section className="w-full">
-      <Gallery images={images} />
-      <div className="px-4">
-        <h1 className="text-2xl">{infos.title}</h1>
-        <p>{infos.subtitle}</p>
-      </div>
-      <div className="px-4">
-        <p>{infos.text}</p>
+    <section className="w-full overflow-hidden">
+      <Gallery images={images}></Gallery>
+      <div className="min-h-[25rem] rounded-sm bg-brand-accent p-4 text-brand-light">
+        <h1 className="text-2xl font-extrabold">{infos.title}</h1>
+        <p className="text-xs">{infos.subtitle}</p>
+        <p className="mt-4 text-sm">{infos.text}</p>
       </div>
     </section>
   )

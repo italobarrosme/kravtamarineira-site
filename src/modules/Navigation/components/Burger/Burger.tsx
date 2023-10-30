@@ -25,11 +25,13 @@ export const Burger = forwardRef<HTMLUListElement, BurguerProps>(
     return (
       <nav
         {...props}
-        className="absolute top-0 flex h-20 w-full items-center justify-between bg-brand-dark px-4 shadow-sm"
+        className="absolute top-0 flex h-20 w-full items-center justify-between gap-2 bg-brand-light px-4 shadow-sm"
       >
-        <Link href="/">
-          {/* <Image src={logo} alt="logo" width={180} height={180} /> */}
-          <h1 className="text-brand-primary">Academia de Krav maga</h1>
+        <Link href="/" className="flex items-center">
+          <Image src={logo} alt="logo" width={100} height={100} />
+          <h1 className="font-semibold text-brand-dark">
+            Academia de Krav maga - Unidade Tamarineira
+          </h1>
         </Link>
         {children}
         {!!isMenuOpen && (

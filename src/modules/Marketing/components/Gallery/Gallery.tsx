@@ -2,16 +2,20 @@
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import { useSliderGallery } from './hooks/useSliderGallery'
+import { cn } from '@/utils'
+import { ReactNode } from 'react'
 
 type GalleryProps = {
   images: string[]
+  className?: string
+  children?: ReactNode
 }
 
-export const Gallery = ({ images }: GalleryProps) => {
+export const Gallery = ({ images, className, children }: GalleryProps) => {
   const { nextSlide, prevSlide, currentIndex } = useSliderGallery(images)
 
   return (
-    <div className="relative mb-4 w-full p-4">
+    <div className={cn('relative w-full p-4', className)}>
       {images.map((image, index) => (
         <div
           key={index}
@@ -41,7 +45,7 @@ export const Gallery = ({ images }: GalleryProps) => {
       </button>
 
       {/* contador de imagens e current */}
-      <div className="absolute bottom-4 left-center-x mr-8 flex flex-row rounded-full text-white">
+      <div className="absolute bottom-8 left-center-x mr-8 flex flex-row rounded-full text-white">
         {images.map((image, index) => (
           <span
             key={index}
@@ -51,6 +55,7 @@ export const Gallery = ({ images }: GalleryProps) => {
           ></span>
         ))}
       </div>
+      {children}
     </div>
   )
 }

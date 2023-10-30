@@ -16,7 +16,7 @@ export const useSliderGallery = (images: string[]) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 7000)
+    }, 12000)
     return () => clearInterval(interval)
   }, [images])
 

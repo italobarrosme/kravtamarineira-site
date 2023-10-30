@@ -7,10 +7,10 @@ const mockDataAPI = {
 }
 
 const mockDataImages = [
-  'https://source.unsplash.com/random/1920x1080/?4',
-  'https://source.unsplash.com/random/1920x1080/?5',
-  'https://source.unsplash.com/random/1920x1080/?6',
-  'https://source.unsplash.com/random/1920x1080/?7',
+  'https://source.unsplash.com/random/1920x1080/',
+  'https://source.unsplash.com/random/1920x1080/?25',
+  'https://source.unsplash.com/random/1920x1080/?23',
+  'https://source.unsplash.com/random/1920x1080/?85',
 ]
 
 export const Marketing = () => {

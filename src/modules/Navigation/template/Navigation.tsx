@@ -31,7 +31,7 @@ export const Navigation = () => {
       {screenWidth < 768 ? (
         <Burger
           ref={ref}
-          logo="/logo-line-black.png"
+          logo="/logo-krav.png"
           menus={menus}
           isMenuOpen={isMenuOpen}
         >
@@ -42,7 +42,7 @@ export const Navigation = () => {
           />
         </Burger>
       ) : (
-        <Navbar menus={menus} />
+        <Navbar logo="/logo-krav.png" menus={menus} />
       )}
     </>
   )
