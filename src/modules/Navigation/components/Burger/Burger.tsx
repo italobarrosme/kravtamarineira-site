@@ -27,9 +27,9 @@ export const Burger = forwardRef<HTMLUListElement, BurguerProps>(
         {...props}
         className="absolute top-0 flex h-20 w-full items-center justify-between gap-2 bg-brand-light px-4 shadow-sm"
       >
-        <Link href="/" className="flex items-center">
-          <Image src={logo} alt="logo" width={100} height={100} />
-          <h1 className="font-semibold text-brand-dark">
+        <Link href="/" className="flex items-center gap-4">
+          <Image src={logo} alt="logo" width={42} height={42} />
+          <h1 className="text-xs font-semibold text-brand-dark">
             Academia de Krav maga - Unidade Tamarineira
           </h1>
         </Link>

@@ -28,7 +28,7 @@ export const Navigation = () => {
 
   return (
     <>
-      {screenWidth < 768 ? (
+      {screenWidth < 1241 ? (
         <Burger
           ref={ref}
           logo="/logo-krav.png"
@@ -37,7 +37,7 @@ export const Navigation = () => {
         >
           <Icon
             icon={isMenuOpen ? 'eva:close-outline' : 'eva:menu-outline'}
-            className="cursor-pointer text-2xl text-brand-primary"
+            className="cursor-pointer text-3xl text-brand-primary"
             onClick={toggleMenu}
           />
         </Burger>

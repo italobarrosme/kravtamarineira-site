@@ -18,9 +18,9 @@ type NavbarProps = {
 
 export const Navbar = ({ menus, logo }: NavbarProps) => {
   return (
-    <nav className="absolute top-0 flex h-20 w-full items-center justify-center gap-4 bg-brand-light px-4 shadow-sm">
-      <Link href="/" className="mr-64 flex items-center">
-        <Image src={logo} alt="logo" width={100} height={100} />
+    <nav className="absolute top-0 flex h-20 w-full items-center justify-center gap-24 bg-brand-light px-4 shadow-sm">
+      <Link href="/" className="mr-8 flex items-center">
+        <Image src={logo} alt="logo" width={42} height={42} className="mr-5" />
         <h1 className="font-semibold text-brand-dark">
           Academia de Krav maga - Unidade Tamarineira
         </h1>
