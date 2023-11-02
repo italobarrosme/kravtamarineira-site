@@ -1,20 +1,21 @@
 import '@/styles/globals.scss'
 import '@/styles/main.scss'
 
-import { Nunito } from 'next/font/google'
 import { ReactNode } from 'react'
 import { Metadata } from 'next'
 import { Navigation } from '@/modules/Navigation'
 import { FooterTemplate } from '@/modules/Navigation/template/FooterTemplate'
+import { Nunito_Sans } from 'next/font/google'
 
 type Props = {
   children?: ReactNode
 }
 
-const nunito = Nunito({
+const nunito = Nunito_Sans({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
+  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
