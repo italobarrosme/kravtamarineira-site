@@ -5,16 +5,15 @@ import { ReactNode } from 'react'
 import { Metadata } from 'next'
 import { Navigation } from '@/modules/Navigation'
 import { FooterTemplate } from '@/modules/Navigation/template/FooterTemplate'
-import { Nunito_Sans } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 
 type Props = {
   children?: ReactNode
 }
 
-const nunito = Nunito_Sans({
-  weight: '400',
-  subsets: ['latin'],
+const nunito = Nunito({
   display: 'swap',
+  subsets: ['latin-ext'],
   adjustFontFallback: false,
 })
 
