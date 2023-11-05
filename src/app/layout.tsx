@@ -13,9 +13,7 @@ type Props = {
 }
 
 const nunito = Nunito({
-  display: 'swap',
   subsets: ['latin-ext'],
-  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {

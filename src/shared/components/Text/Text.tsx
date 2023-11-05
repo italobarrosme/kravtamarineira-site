@@ -1,6 +1,6 @@
 'use client'
 
-import { HTMLAttributes, ReactNode, ElementType } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 import { cva } from 'class-variance-authority'
 import { cn } from '@/utils'
 
