@@ -1,0 +1,1 @@
+export { HistoryKravTemplate } from './HistoryKravTemplate'

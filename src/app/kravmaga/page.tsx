@@ -1,7 +1,9 @@
+import { HistoryKravTemplate } from '@/modules/HistoryKrav/'
+
 export default function Kravmaga() {
   return (
-    <section className="h-screen px-4">
-      <h1>Example page historia do Kravmaga</h1>
+    <section className="flex min-h-screen flex-col items-center gap-4 px-4 py-8">
+      <HistoryKravTemplate />
     </section>
   )
 }
