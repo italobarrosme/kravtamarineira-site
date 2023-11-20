@@ -3,12 +3,12 @@ import { Footer } from '../components/Footer'
 export const FooterTemplate = () => {
   const socialMedias = [
     {
-      name: 'kravmaga.tamarineira',
+      name: 'kravmaga.tamarineira facebook',
       link: 'https://www.facebook.com/kravmaga.tamarineira/',
       icon: 'entypo-social:facebook',
     },
     {
-      name: 'kravmaga.tamarineira',
+      name: 'kravmaga.tamarineira instagram',
       link: 'https://www.instagram.com/kravmaga.tamarineira/',
       icon: 'mdi:instagram',
     },

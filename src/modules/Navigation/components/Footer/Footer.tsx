@@ -36,7 +36,7 @@ export const Footer = ({
   address,
 }: FooterProps) => {
   return (
-    <footer className="flex w-full flex-col gap-4 bg-brand-light p-4 text-brand-dark">
+    <footer className="flex w-full flex-col gap-4 border-solid bg-brand-light p-4 text-brand-dark">
       <section className="flex flex-col gap-4">
         <div className="flex w-full items-center gap-4">
           <Image src={logo} alt="logo" width={42} height={42} />

@@ -29,12 +29,13 @@ const mockDataImages = [
 export const HistoryKravTemplate = () => {
   return (
     <>
-      <Text>{mockDataAPI.title}</Text>
-
+      <Text variant="h3">{mockDataAPI.title}</Text>
       <Text variant="h4">{mockDataAPI.subtitle}</Text>
-      <div className="max-w-3xl">
+      <div className="flex max-w-3xl flex-col gap-4">
         <Text variant="p">{mockDataAPI.text1}</Text>
         <Text variant="p">{mockDataAPI.text2}</Text>
+        <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" />
+        <Text variant="p">{mockDataAPI.text3}</Text>
         <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" />
         <Text variant="p">{mockDataAPI.text3}</Text>
       </div>

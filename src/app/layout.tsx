@@ -1,6 +1,5 @@
 import '@/styles/globals.scss'
 import '@/styles/main.scss'
-import '@mesainc/vibra-components-web/styles.css'
 
 import { ReactNode } from 'react'
 import { Metadata } from 'next'
