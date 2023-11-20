@@ -18,7 +18,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
   return (
     <div className="py-4">
       <div className="flex flex-col">
-        <div className="group relative h-80 w-56 cursor-pointer rounded-lg">
+        <div className="group relative h-96 w-56 cursor-pointer rounded-lg">
           <Image
             src={trainer.image}
             alt={trainer.name}
@@ -26,11 +26,15 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-lg shadow-sm"
           />
-          <div className="absolute bottom-0 flex w-full flex-col rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-0 shadow-sm backdrop-blur-sm duration-100 group-hover:opacity-100">
-            <Text>{trainer.name}</Text>
-            <Text>{trainer.description}</Text>
-            <Text>{trainer.contact}</Text>
-            <Text>{trainer.track}</Text>
+          <div className="absolute bottom-0 flex w-full flex-col gap-1 rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-0 shadow-sm backdrop-blur-sm duration-100 group-hover:opacity-100">
+            <Text variant="h6" className="font-bold">
+              {trainer.name}
+            </Text>
+            <Text className="font-bold">{trainer.description}</Text>
+            <Text className="font-bold">{trainer.contact}</Text>
+            <Text className="bg-brand-accent p-2 font-black">
+              {trainer.track}
+            </Text>
 
             <Button
               variant="secondary"
