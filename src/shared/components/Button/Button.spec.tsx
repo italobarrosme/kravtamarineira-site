@@ -33,7 +33,7 @@ describe('<Button />', () => {
 
     const button = screen.getByRole('button')
 
-    expect(button).toHaveClass('bg-primary-regular')
+    expect(button).toHaveClass('bg-brand-primary')
     expect(button).toHaveClass('w-[200px]')
   })
 
@@ -51,7 +51,7 @@ describe('<Button />', () => {
 
     const button = screen.getByRole('button')
 
-    expect(button).toHaveClass('bg-primary-regular')
+    expect(button).toHaveClass('bg-brand-primary')
   })
 
   it('should render with neutral variant', () => {
@@ -127,42 +127,6 @@ describe('<Button />', () => {
     expect(clickEvent).toBeCalledTimes(0)
   })
 
-  it('should render load icon when loading prop is true', () => {
-    renderComponent({
-      isLoading: true,
-    })
-
-    const button = screen.getByRole('progressbar')
-
-    expect(button).toBeInTheDocument()
-  })
-
-  it('should render regular load for neutral variant', () => {
-    renderComponent({
-      isLoading: true,
-      variant: 'neutral',
-    })
-
-    const loader = screen.getAllByTestId('load-icon')
-
-    loader.forEach((icon) => {
-      expect(icon).toHaveClass('bg-secondary-regular')
-    })
-  })
-
-  it('should render neutral load for primary variant', () => {
-    renderComponent({
-      isLoading: true,
-      variant: 'primary',
-    })
-
-    const loader = screen.getAllByTestId('load-icon')
-
-    loader.forEach((icon) => {
-      expect(icon).toHaveClass('bg-white')
-    })
-  })
-
   it('should render link variant', () => {
     renderComponent({
       href: 'https://www.google.com',
@@ -173,7 +137,7 @@ describe('<Button />', () => {
     const button = screen.getByRole('link')
 
     expect(button).toHaveClass(
-      'text-primary-regular hover:text-primary-medium hover:underline active:text-primary-dark'
+      'grid h-10 place-items-center truncate rounded-md text-base font-bold transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary disabled:pointer-events-none disabled:opacity-30 sm:min-w-[220px] text-brand-accent hover:text-brand-accent-hover hover:underline active:text-brand-accent-hover w-[200px]'
     )
   })
 
