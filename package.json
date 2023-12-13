@@ -48,6 +48,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
+    "@faker-js/faker": "^8.3.1",
     "@iconify/react": "^4.1.1",
     "@next/eslint-plugin-next": "^13.1.1",
     "@testing-library/react": "^14.0.0",
