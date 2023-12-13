@@ -24,6 +24,7 @@
     "*.js": "eslint --cache --fix"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "@italobarrosme/vibra-components-web": "^0.0.28",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.5.3",
@@ -39,7 +40,9 @@
     "nookies": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.2",
     "usehooks-ts": "^2.6.0",
+    "zod": "^3.22.4",
     "zustand": "^4.1.1"
   },
   "devDependencies": {

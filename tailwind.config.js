@@ -21,6 +21,12 @@ module.exports = {
           secondary: '#2987D9',
           soft: '#C5D5FF',
           accent: '#FF6B1A',
+          'accent-hover': '#FFB238',
+        },
+        feedback: {
+          error: '#FF0000',
+          warning: '#FFC107',
+          success: '#4BB543',
         },
         transparent: 'transparent',
       },

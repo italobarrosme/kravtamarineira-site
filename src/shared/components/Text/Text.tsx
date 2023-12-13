@@ -15,6 +15,7 @@ const textStyle = cva([], {
       h6: 'my-2 text-xl font-semibold',
       p: 'break-normal text-sm font-normal',
       small: 'text-xs',
+      label: 'my-2 text-sm font-semibold',
     },
   },
   defaultVariants: {
@@ -22,7 +23,16 @@ const textStyle = cva([], {
   },
 })
 
-type VariantType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'small'
+type VariantType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'small'
+  | 'label'
 
 type SelectedTags = keyof JSX.IntrinsicElements extends infer K
   ? K extends VariantType
@@ -45,7 +55,7 @@ export const Text = ({
   const Tag = variant
 
   return (
-    <Tag className={cn([textStyle({ variant }), className])} {...props}>
+    <Tag className={cn(textStyle({ variant }), className)} {...props}>
       {children}
     </Tag>
   )

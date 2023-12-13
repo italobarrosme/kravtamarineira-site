@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/shared/pieces/Button'
+import { Button } from '@/shared/components/Button'
 import { Trainer, Schedule } from '../../types'
 import { Text } from '@/shared/components/Text'
 import { cn } from '@/utils'
@@ -37,7 +37,8 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
             </Text>
 
             <Button
-              variant="secondary"
+              variant="primary"
+              size="full"
               onClick={() => setIsSchudules(!isSchudules)}
               className="my-2"
             >

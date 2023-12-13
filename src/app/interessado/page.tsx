@@ -1,7 +1,9 @@
+import { LeadForm } from '@/modules/Leads'
+
 export default function Instrutores() {
   return (
-    <section className="h-screen px-4">
-      <h1>Example page Interessados</h1>
+    <section className="flex flex-col items-center justify-center gap-4 bg-brand-primary p-4 sm:min-w-full">
+      <LeadForm />
     </section>
   )
 }
