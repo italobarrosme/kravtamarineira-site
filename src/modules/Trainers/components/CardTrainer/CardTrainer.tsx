@@ -18,7 +18,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
   return (
     <div className="py-4">
       <div className="flex flex-col">
-        <div className="group relative h-96 w-56 cursor-pointer rounded-lg">
+        <div className="group relative h-96 w-72 cursor-pointer rounded-lg">
           <Image
             src={trainer.image}
             alt={trainer.name}

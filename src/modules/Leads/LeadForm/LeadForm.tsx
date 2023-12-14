@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { LeadSchema, leadSchema } from '../schema'
 import { Button } from '@/shared/components/Button'
+import { formatPhoneNumber } from '@/utils/formats'
 
 export const LeadForm = () => {
   const {
@@ -27,25 +28,29 @@ export const LeadForm = () => {
       })}
     >
       <Input
-        label="Seu nome"
+        label="Seu nome *"
         hasError={!!errors.name}
         modeDark
         placeholder='Ex: "João da Silva"'
         errorMessage={errors.name?.message}
+        required
         {...register('name')}
       />
       <Input
-        label="Seu Número de telefone"
-        type="tel"
+        label="Seu Número de telefone *"
         hasError={!!errors.number}
         modeDark
         errorMessage={errors.number?.message}
         placeholder="(00) 00000-0000"
-        pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
+        maxLength={15}
+        onInput={(e) => {
+          e.currentTarget.value = formatPhoneNumber(e.currentTarget.value)
+        }}
+        required
         {...register('number')}
       />
       <Input
-        label="Seu E-mail"
+        label="Seu E-mail ( Opcional )"
         type="email"
         modeDark
         hasError={!!errors.email}
@@ -58,18 +63,19 @@ export const LeadForm = () => {
         modeDark
         hasError={!!errors.availableContact}
         placeholder='Ex: "Segunda a Sexta das 8h às 18h"'
-        type="area"
         errorMessage={errors.availableContact?.message}
         {...register('availableContact')}
       />
 
-      <Button
-        variant="outline"
-        onClick={() => console.log('here')}
-        className="my-2"
-      >
-        Enviar meus dados
-      </Button>
+      <div className="flex w-full flex-row-reverse">
+        <Button
+          variant="outline"
+          onClick={() => console.log('here')}
+          className="my-2"
+        >
+          Enviar meus dados
+        </Button>
+      </div>
     </form>
   )
 }

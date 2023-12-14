@@ -5,6 +5,7 @@ import {
   InputHTMLAttributes,
   ReactNode,
   forwardRef,
+  useEffect,
   useState,
 } from 'react'
 
@@ -47,6 +48,7 @@ export type InputProps = {
   iconLeft?: ReactNode
   iconRight?: ReactNode
   modeDark?: boolean
+  onInput?: (e: React.FormEvent<HTMLInputElement>) => void
   type?: Omit<
     HTMLInputTypeAttribute,
     | 'image'
@@ -79,6 +81,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       iconLeft,
       iconRight,
+      onInput,
       maxLength,
       ...props
     },
@@ -132,7 +135,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             disabled={disabled}
             readOnly={readOnly}
             maxLength={maxLength}
-            onChange={(e) => {
+            onInput={(e) => {
+              onInput && onInput(e)
               setCaractersCount(e.currentTarget.value.length)
             }}
             ref={ref}
@@ -148,7 +152,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <div
           className={cn(
             'w-full relative',
-            hasError ? 'text-feedback-error' : 'text-brand-dark'
+            hasError
+              ? 'text-feedback-error'
+              : modeDark
+              ? 'text-brand-light'
+              : 'text-brand-dark'
           )}
         >
           {hasError && errorMessage && (
@@ -157,12 +165,26 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             </Text>
           )}
           {accessoryText && !errorMessage && (
-            <Text variant="p" className="absolute left-0 mt-1">
+            <Text
+              variant="p"
+              className={
+                modeDark
+                  ? 'absolute left-0 mt-1 text-brand-light'
+                  : 'absolute left-0 mt-1 text-brand-dark'
+              }
+            >
               {accessoryText}
             </Text>
           )}
           {maxLength && (
-            <Text variant="p" className="absolute right-0 mt-1">
+            <Text
+              variant="p"
+              className={
+                modeDark
+                  ? 'absolute right-0 mt-1 text-brand-light'
+                  : 'absolute right-0 mt-1 text-brand-dark'
+              }
+            >
               {caractersCount}/{maxLength}
             </Text>
           )}

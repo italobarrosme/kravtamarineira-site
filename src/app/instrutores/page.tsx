@@ -3,7 +3,7 @@ import { Text } from '@/shared/components/Text'
 
 export default function Instrutores() {
   return (
-    <section className="flex flex-col justify-center gap-4 bg-brand-primary p-4 md:flex-row">
+    <section className="flex min-h-screen-hero flex-col justify-center gap-4 bg-brand-primary p-4 md:flex-row ">
       <div className="md:w-1/2">
         <Text variant="h5" className="text-brand-light">
           Conheça nossos instrutores e seus horários

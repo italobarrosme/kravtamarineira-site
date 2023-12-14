@@ -7,7 +7,10 @@ export const leadSchema = z.object({
     .max(255, 'Por favor, digite um nome menor')
     .trim()
     .nonempty('Por favor, digite seu nome'),
-  number: z.number().max(11),
+  number: z
+    .string()
+    .max(15, 'Por favor digite um número valido')
+    .nonempty('Por favor, digite seu número'),
   email: z.string().email().nonempty('Por favor, digite seu e-mail'),
   availableContact: z.string().max(255).optional(),
 })
