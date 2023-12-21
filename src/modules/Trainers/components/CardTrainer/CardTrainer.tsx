@@ -6,6 +6,7 @@ import { Text } from '@/shared/components/Text'
 import { cn } from '@/utils'
 import Image from 'next/image'
 import { useState } from 'react'
+import { CardInfo } from '@/shared/components/CardInfo'
 
 export type CardTrainerProps = {
   trainer: Trainer
@@ -26,7 +27,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-lg shadow-sm"
           />
-          <div className="absolute bottom-0 flex w-full flex-col gap-1 rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-0 shadow-sm backdrop-blur-sm duration-100 group-hover:opacity-100">
+          <div className="absolute bottom-0 flex w-full flex-col gap-1 rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
             <Text variant="h6" className="font-bold">
               {trainer.name}
             </Text>
@@ -46,12 +47,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
             </Button>
           </div>
         </div>
-        <div
-          className={cn(
-            isSchudules ? 'flex flex-col bg-brand-light w-56 p-4' : 'hidden'
-          )}
-        >
-          <Text variant="h6">Horários</Text>
+        <CardInfo isShow={isSchudules} title="Horários">
           <ul>
             {schudules.map((schedule) => (
               <li key={schedule.id}>
@@ -61,7 +57,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
               </li>
             ))}
           </ul>
-        </div>
+        </CardInfo>
       </div>
     </div>
   )
