@@ -1,1 +1,1 @@
-export { ShowCase } from './ShowCase'
+export { ShowCase, DetailCase } from './ShowCase'

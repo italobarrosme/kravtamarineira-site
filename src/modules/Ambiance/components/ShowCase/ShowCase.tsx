@@ -1,5 +1,5 @@
-'use client'
 import { CardInfo } from '@/shared/components/CardInfo'
+import { DetailCase } from './DetailCase'
 import { cn } from '@/utils'
 import Image from 'next/image'
 
@@ -91,12 +91,14 @@ export const ShowCase = () => {
           <Image
             src={imagem.link}
             alt={imagem.alt}
-            className="object-cover transition-opacity duration-300 md:opacity-80 md:hover:opacity-100"
+            className="object-cover"
             fill
           />
-          <CardInfo className="absolute bottom-0 right-0 bg-transparent">
-            <p className="text-brand-light">{imagem.alt}</p>
-          </CardInfo>
+          <DetailCase image={imagem}>
+            <CardInfo className="absolute bottom-0 right-0 bg-transparent">
+              <p className="text-brand-light">{imagem.alt}</p>
+            </CardInfo>
+          </DetailCase>
         </div>
       ))}
     </div>

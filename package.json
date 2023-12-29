@@ -26,6 +26,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@italobarrosme/vibra-components-web": "^0.0.28",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.5.3",
     "@types/node": "20.3.3",
