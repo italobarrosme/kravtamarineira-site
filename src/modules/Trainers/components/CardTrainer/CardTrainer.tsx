@@ -3,17 +3,17 @@
 import { Button } from '@/shared/components/Button'
 import { Trainer, Schedule } from '../../types'
 import { Text } from '@/shared/components/Text'
-import { cn } from '@/utils'
 import Image from 'next/image'
 import { useState } from 'react'
 import { CardInfo } from '@/shared/components/CardInfo'
+import { cn } from '@/utils'
+import { formateTrack } from '@/utils/formats/formatTrack/formatTrack'
 
 export type CardTrainerProps = {
   trainer: Trainer
-  schudules: Schedule[]
 }
 
-export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
+export const CardTrainer = ({ trainer }: CardTrainerProps) => {
   const [isSchudules, setIsSchudules] = useState(false)
 
   return (
@@ -21,7 +21,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
       <div className="flex flex-col">
         <div className="group relative h-96 w-72 cursor-pointer rounded-lg">
           <Image
-            src={trainer.image}
+            src={trainer.image || 'https://via.placeholder.com/300'}
             alt={trainer.name}
             fill={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -33,7 +33,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
             </Text>
             <Text className="font-bold">{trainer.description}</Text>
             <Text className="font-bold">{trainer.contact}</Text>
-            <Text className="bg-brand-accent p-2 font-black">
+            <Text className={cn(`p-2 font-black`, formateTrack(trainer.track))}>
               {trainer.track}
             </Text>
 
@@ -49,7 +49,7 @@ export const CardTrainer = ({ trainer, schudules }: CardTrainerProps) => {
         </div>
         <CardInfo isShow={isSchudules} title="Horários">
           <ul>
-            {schudules.map((schedule) => (
+            {trainer.schedules.map((schedule) => (
               <li key={schedule.id}>
                 <Text>{schedule.day}</Text>
                 <Text>{schedule.time}</Text>

@@ -5,6 +5,7 @@ export type Trainer = {
   image: string
   id: string
   track: string
+  schedules: Schedule[]
 }
 
 export type Schedule = {

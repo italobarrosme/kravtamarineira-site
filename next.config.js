@@ -32,6 +32,11 @@ const nextConfig = {
         hostname: 'source.unsplash.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+      },
     ],
   },
 }
