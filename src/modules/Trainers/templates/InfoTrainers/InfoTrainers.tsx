@@ -1,6 +1,5 @@
 import { CardTrainer } from '@/modules/Trainers/components/CardTrainer/'
 import { getAllTrainers } from '../../service'
-import { Trainer } from '../../types'
 
 export const InfoTrainers = async () => {
   const { data } = await getAllTrainers()

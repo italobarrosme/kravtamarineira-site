@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { CardInfo } from '@/shared/components/CardInfo'
 import { cn } from '@/utils'
-import { formateTrack } from '@/utils/formats/formatTrack/formatTrack'
+import { formatTrack } from '@/utils/formats/formatTrack/formatTrack'
 
 export type CardTrainerProps = {
   trainer: Trainer
@@ -33,7 +33,7 @@ export const CardTrainer = ({ trainer }: CardTrainerProps) => {
             </Text>
             <Text className="font-bold">{trainer.description}</Text>
             <Text className="font-bold">{trainer.contact}</Text>
-            <Text className={cn(`p-2 font-black`, formateTrack(trainer.track))}>
+            <Text className={cn(`p-2 font-black`, formatTrack(trainer.track))}>
               {trainer.track}
             </Text>
 

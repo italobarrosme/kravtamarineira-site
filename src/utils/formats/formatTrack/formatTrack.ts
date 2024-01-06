@@ -1,4 +1,4 @@
-export const formateTrack = (track: string) => {
+export const formatTrack = (track: string) => {
   switch (track) {
     case 'Verde':
       return 'bg-green-500'
