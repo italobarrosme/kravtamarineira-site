@@ -1,23 +1,6 @@
 import { Text } from '@/shared/components/Text'
 import Image from 'next/image'
-
-const mockDataAPI = {
-  title: 'Historia do kravmaga',
-  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  text1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquet vulputate, diam nisl molestie ips
-  um, nec aliquam libero odio sit amet eros. Nulla facilisi. Nulla facilisi. Praesent vel felis id mauris ultricies ultrices. Sed
-  auctor, nisl sit amet aliquet pulvinar, magna velit ultricies purus, sit amet aliquam libero odio sit amet eros. Nulla facilisi.
-  Nulla facilisi. Praesent vel felis id mauris ultricies ultrices. Sed auctor, nisl sit amet aliquet pulvinar, magna velit ultricies
-  purus, sit amet aliquam libero odio sit amet eros. Nulla facilisi. Nulla facilisi. Praesent vel felis id mauris ultricies ultrices.`,
-  text2: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquet vulputate, diam nisl molestie ips
-  um, nec aliquam libero odio sit amet eros. Nulla facilisi. Nulla facilisi. Praesent vel felis id mauris ultricies ultrices. Sed
-  auctor, nisl sit amet aliquet pulvinar, magna velit ultricies purus, sit amet aliquam libero odio sit amet eros. Nulla facilisi.
-  Nulla facilisi. Praesent vel felis id mauris ultricies ultrices. Sed auctor, nisl sit amet aliquet pulvinar, magna velit ultricies
-  purus, sit amet aliquam libero odio sit amet eros. Nulla facilisi. Nulla facilisi. Praesent vel felis id mauris ultricies ultrices.`,
-  text3: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquet vulputate, diam nisl molestie ips
-  um, nec aliquam libero odio sit amet eros. Nulla facilisi. Nulla facilisi. Praesent vel felis id mauris ultricies ultrices. Sed
-  auctor, nisl sit amet aliquet pulvinar, magna velit ultricies purus, sit amet aliquam libero odio sit amet eros. Nulla facilisi.`,
-}
+import { getHistoryKravAction } from './services/actions'
 
 const mockDataImages = [
   'https://source.unsplash.com/random/1920x1080/',
@@ -26,18 +9,28 @@ const mockDataImages = [
   'https://source.unsplash.com/random/1920x1080/?85',
 ]
 
-export const HistoryKravTemplate = () => {
+export const HistoryKravTemplate = async () => {
+  const data = await getHistoryKravAction()
+
   return (
     <>
-      <Text variant="h3">{mockDataAPI.title}</Text>
-      <Text variant="h4">{mockDataAPI.subtitle}</Text>
-      <div className="flex max-w-3xl flex-col gap-4">
-        <Text variant="p">{mockDataAPI.text1}</Text>
-        <Text variant="p">{mockDataAPI.text2}</Text>
+      <Text variant="h2">{data.text1.title}</Text>
+      <div className="mb-8 flex max-w-3xl flex-col gap-4">
+        {data.text1.paragraph.map((paragraph: string, index: number) => (
+          <Text key={index} variant="p">
+            {paragraph}
+          </Text>
+        ))}
+      </div>
+
+      <Text variant="h2">{data.text2.title}</Text>
+      <div className="mb-32 flex max-w-3xl flex-col gap-4">
+        {data.text2.paragraph.map((paragraph: string, index: number) => (
+          <Text key={index} variant="p">
+            {paragraph}
+          </Text>
+        ))}
         <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" />
-        <Text variant="p">{mockDataAPI.text3}</Text>
-        <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" />
-        <Text variant="p">{mockDataAPI.text3}</Text>
       </div>
     </>
   )

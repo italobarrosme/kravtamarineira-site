@@ -7,12 +7,12 @@ import { cn } from '@/utils'
 const textStyle = cva([], {
   variants: {
     variant: {
-      h1: 'my-2 text-7xl font-bold',
-      h2: 'my-2 text-6xl font-semibold',
-      h3: 'my-2 text-5xl font-semibold',
-      h4: 'my-2 text-4xl font-semibold',
-      h5: 'my-2 text-3xl font-semibold',
-      h6: 'my-2 text-xl font-semibold',
+      h1: 'my-2 text-5xl font-bold',
+      h2: 'my-2 text-4xl font-semibold',
+      h3: 'my-2 text-3xl font-semibold',
+      h4: 'my-2 text-2xl font-semibold',
+      h5: 'my-2 text-xl font-semibold',
+      h6: 'my-2 text-base font-semibold',
       p: 'break-normal text-sm font-normal',
       small: 'text-xs',
       label: 'my-2 text-sm font-semibold',
