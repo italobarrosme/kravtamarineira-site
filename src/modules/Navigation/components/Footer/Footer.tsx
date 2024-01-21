@@ -91,9 +91,9 @@ export const Footer = ({
         <p className="text-xs font-semibold">
           <a
             href="https://www.orangescreen.com.br/"
-            className="text-orange-500"
+            className="text-blue-500 hover:text-blue-700"
           >
-            orangeScreen
+            Coqueiro Digital
           </a>{' '}
           © 2023 All Rights Reserved{' '}
         </p>
