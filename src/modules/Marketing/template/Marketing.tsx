@@ -6,13 +6,8 @@ const mockDataAPI = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquet vulputate, diam nisl molestie ipsum, nec aliqua',
 }
 
-const mockDataImages = [
-  'https://source.unsplash.com/random/1920x1080/',
-  'https://source.unsplash.com/random/1920x1080/?25',
-  'https://source.unsplash.com/random/1920x1080/?23',
-  'https://source.unsplash.com/random/1920x1080/?85',
-]
+const mockDataImages = []
 
 export const Marketing = () => {
-  return <Hero infos={mockDataAPI} images={mockDataImages}></Hero>
+  return <Hero infos={mockDataAPI} images={[]}></Hero>
 }

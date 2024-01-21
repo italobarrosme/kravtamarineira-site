@@ -16,45 +16,65 @@ export const Gallery = ({ images, className, children }: GalleryProps) => {
 
   return (
     <div className={cn('relative w-full p-4', className)}>
-      {images.map((image, index) => (
+      {images.length > 0 ? (
+        images.map((image, index) => (
+          <div
+            key={index}
+            className={`${
+              index === currentIndex ? 'block' : 'hidden'
+            } min-h-screen-hero w-full transition-opacity duration-300`}
+          >
+            <Image
+              src={image || 'https://via.placeholder.com/1920x1080'}
+              alt={`Slide ${index + 1}`}
+              className="object-cover"
+              fill={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        ))
+      ) : (
         <div
-          key={index}
-          className={`${
-            index === currentIndex ? 'block' : 'hidden'
-          } min-h-screen-hero w-full transition-opacity duration-300`}
+          className={`min-h-screen-hero w-full transition-opacity duration-300`}
         >
           <Image
-            src={image}
-            alt={`Slide ${index + 1}`}
+            src={'https://via.placeholder.com/1920x1080'}
+            alt={`Slide default`}
             className="object-cover"
             fill={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-      ))}
-      <button
-        className="absolute bottom-1/2 left-4 -translate-y-1/2 rounded-full bg-brand-accent p-2 text-white"
-        onClick={prevSlide}
-      >
-        <Icon icon="akar-icons:chevron-left" width={12} />
-      </button>
-      <button
-        className="absolute bottom-1/2 right-4  -translate-y-1/2 rounded-full bg-brand-accent p-2 text-white"
-        onClick={nextSlide}
-      >
-        <Icon icon="akar-icons:chevron-right" width={12} />
-      </button>
+      )}
+      {images.length > 1 && (
+        <>
+          <button
+            className="absolute bottom-1/2 left-4 -translate-y-1/2 rounded-full bg-brand-accent p-2 text-white"
+            onClick={prevSlide}
+          >
+            <Icon icon="akar-icons:chevron-left" width={12} />
+          </button>
+          <button
+            className="absolute bottom-1/2 right-4  -translate-y-1/2 rounded-full bg-brand-accent p-2 text-white"
+            onClick={nextSlide}
+          >
+            <Icon icon="akar-icons:chevron-right" width={12} />
+          </button>
+        </>
+      )}
 
       {/* contador de imagens e current */}
-      <div className="absolute bottom-8 left-center-x mr-8 flex flex-row rounded-full text-white">
-        {images.map((image, index) => (
-          <span
-            key={index}
-            className={`${
-              index === currentIndex ? 'bg-brand-accent' : 'bg-brand-light'
-            } mx-1 flex h-2 w-2 flex-row rounded-full`}
-          ></span>
-        ))}
+      <div className="absolute bottom-8 flex w-full justify-center rounded-full text-white">
+        {images.length > 1
+          ? images.map((image, index) => (
+              <span
+                key={index}
+                className={`${
+                  index === currentIndex ? 'bg-brand-accent' : 'bg-brand-light'
+                } mx-1 flex h-2 w-2 flex-row rounded-full`}
+              ></span>
+            ))
+          : null}
       </div>
       {children}
     </div>
