@@ -27,11 +27,13 @@ export const CardTrainer = ({ trainer }: CardTrainerProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-lg shadow-sm"
           />
-          <div className="absolute bottom-0 flex w-full flex-col gap-1 rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
+          <div className="absolute bottom-0 flex h-96 w-full flex-col gap-1 rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
             <Text variant="h6" className="font-bold">
               {trainer.name}
             </Text>
-            <Text className="font-bold">{trainer.description}</Text>
+            <Text className="overflow-y-auto font-bold ">
+              {trainer.description}
+            </Text>
             <Text className="font-bold">{trainer.contact}</Text>
             <Text className={cn(`p-2 font-black`, formatTrack(trainer.track))}>
               {trainer.track}
