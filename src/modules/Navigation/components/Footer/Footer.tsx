@@ -41,7 +41,7 @@ export const Footer = ({
         <div className="flex w-full items-center gap-4">
           <Image src={logo} alt="logo" width={42} height={42} />
           <a
-            className="max-w-xs text-xs font-semibold sm:text-sm"
+            className="max-w-xs text-xs font-semibold hover:text-brand-accent sm:text-sm"
             href={address.link}
             target="_blank"
           >

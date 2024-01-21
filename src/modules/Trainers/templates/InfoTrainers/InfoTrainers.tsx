@@ -4,8 +4,6 @@ import { getAllTrainers } from '../../service'
 export const InfoTrainers = async () => {
   const { data } = await getAllTrainers()
 
-  console.log(data, 'data')
-
   const trainers = data.map((item) => ({
     id: item.id.toString(),
     name: item.attributes.Name,
