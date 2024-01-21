@@ -19,6 +19,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: process.env.DOMAIN,
+        port: '',
+      },
+      {
+        protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
         port: '',
       },

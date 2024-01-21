@@ -13,6 +13,6 @@ export const formatTrack = (track: string) => {
     case 'Roxo':
       return 'bg-purple-500'
     case 'Marrom':
-      return 'bg-brown-500'
+      return 'bg-amber-950'
   }
 }

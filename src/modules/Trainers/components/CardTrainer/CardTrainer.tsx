@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/shared/components/Button'
-import { Trainer, Schedule } from '../../types'
+import { Trainer } from '../../types'
 import { Text } from '@/shared/components/Text'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -19,23 +19,31 @@ export const CardTrainer = ({ trainer }: CardTrainerProps) => {
   return (
     <div className="py-4">
       <div className="flex flex-col">
-        <div className="group relative h-96 w-72 cursor-pointer rounded-lg">
+        <div className="group relative h-96 w-72 cursor-pointer rounded-lg border-[1px] border-solid border-brand-secondary">
           <Image
-            src={trainer.image || 'https://via.placeholder.com/300'}
+            src={
+              `${process.env.NEXT_PUBLIC_BASE_URL_UPLOADS + trainer.image}` ||
+              'https://via.placeholder.com/300'
+            }
             alt={trainer.name}
             fill={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-lg shadow-sm"
           />
-          <div className="absolute bottom-0 flex h-96 w-full flex-col gap-1 rounded-lg bg-transparent p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
+          <div className="absolute bottom-0 flex w-full flex-col gap-1 rounded-lg bg-brand-secondary/80 p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
             <Text variant="h6" className="font-bold">
               {trainer.name}
             </Text>
-            <Text className="overflow-y-auto font-bold ">
+            <Text className="h-52 overflow-y-auto font-bold ">
               {trainer.description}
             </Text>
             <Text className="font-bold">{trainer.contact}</Text>
-            <Text className={cn(`p-2 font-black`, formatTrack(trainer.track))}>
+            <Text
+              className={cn(
+                `p-2 font-black rounded-md`,
+                formatTrack(trainer.track)
+              )}
+            >
               {trainer.track}
             </Text>
 
