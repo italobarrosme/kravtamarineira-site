@@ -15,14 +15,13 @@ const NotFound = () => {
         <div className="container mx-auto my-8 flex flex-col items-center justify-center px-5">
           <div className="max-w-md text-center">
             <h2 className="mb-8 text-9xl font-extrabold text-brand-primary">
-              <span className="sr-only">Error</span>404
+              Error 404
             </h2>
             <p className="text-2xl font-semibold md:text-3xl">
-              Sorry, we couldnt find this page.
+              Desculpe, a página que você está procurando não foi encontrada.
             </p>
             <p className="mb-8 mt-4 text-brand-primary">
-              But dont worry, you can find plenty of other things on our
-              homepage.
+              Você será redirecionado para a página inicial em 5 segundos.
             </p>
             <Link
               href="/"

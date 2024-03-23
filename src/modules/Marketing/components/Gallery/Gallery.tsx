@@ -63,7 +63,6 @@ export const Gallery = ({ images, className, children }: GalleryProps) => {
         </>
       )}
 
-      {/* contador de imagens e current */}
       <div className="absolute bottom-8 flex w-full justify-center rounded-full text-white">
         {images.length > 1
           ? images.map((image, index) => (

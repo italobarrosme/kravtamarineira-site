@@ -4,9 +4,13 @@ import { getHistoryKrav } from './dataFetchers'
 import { extractTitlesAndParagraph } from './extractTitlesAndParagraph'
 
 export async function getHistoryKravAction() {
-  const historyKrav = await getHistoryKrav()
+  try {
+    const historyKrav = await getHistoryKrav()
 
-  const data = extractTitlesAndParagraph(historyKrav.data.attributes.History)
+    const data = extractTitlesAndParagraph(historyKrav.data.attributes.History)
 
-  return data
+    return data
+  } catch (error: any) {
+    throw new Error('Falha ao buscar a história do Krav Maga')
+  }
 }
