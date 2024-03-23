@@ -1,7 +1,27 @@
-import { InfoTrainers } from '@/modules/Trainers'
 import { Text } from '@/shared/components/Text'
+import { getAllTrainers } from '@/modules/Trainers/service'
+import { CardTrainer } from '@/modules/Trainers/components/CardTrainer/'
 
-export default function Instrutores() {
+export default async function Instrutores() {
+  const { data } = await getAllTrainers()
+
+  const trainers = data.map((item) => ({
+    id: item.id.toString(),
+    name: item.attributes.Name,
+    description: item.attributes.Info,
+    contact: item.attributes.Phone,
+    track: item.attributes.Grade,
+    // remove /
+    image: item.attributes.Image.data.attributes.formats.thumbnail.url,
+    schedules: item.attributes.classes.data.map((schedule) => ({
+      id: schedule.id.toString(),
+      day: schedule.attributes.WeekDay,
+      time: schedule.attributes.Hour,
+      duration: '',
+      track: '',
+    })),
+  }))
+
   return (
     <section className="flex min-h-screen-hero flex-col justify-center gap-4 bg-brand-primary p-4 md:flex-row ">
       <div className="md:w-1/2">
@@ -18,7 +38,11 @@ export default function Instrutores() {
         </Text>
       </div>
       <div className="md:w-1/2">
-        <InfoTrainers />
+        <div className="flex flex-wrap gap-8">
+          {trainers.map((item) => (
+            <CardTrainer key={item.id} trainer={item} />
+          ))}
+        </div>
       </div>
     </section>
   )

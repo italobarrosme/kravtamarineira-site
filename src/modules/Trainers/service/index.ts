@@ -98,7 +98,7 @@ export const getAllTrainers = async (): Promise<ResponseTrainers> => {
         statusCode: response.status,
         type: 'error',
       })
-      throw error
+      throw new Error(`Erro na requisição: ${error}`)
     }
   } else {
     getCustomLog({
