@@ -34,7 +34,7 @@ export default async function Instrutores() {
         <Text variant="h2" className="text-xl text-brand-light">
           Conheça nossos instrutores e seus horários
         </Text>
-        {textFormatted.text.map((paragraph: string, index: number) => (
+        {textFormatted.text?.map((paragraph: string, index: number) => (
           <Text
             key={index}
             variant="p"
