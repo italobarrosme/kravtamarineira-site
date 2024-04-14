@@ -26,7 +26,7 @@ export const useMenuNav = () => {
       },
     },
     {
-      name: 'O que é krav magá',
+      name: 'O que é krav maga?',
       icon: 'bx:bx-home',
       active: verifyPath('/kravmaga'),
       accent: false,

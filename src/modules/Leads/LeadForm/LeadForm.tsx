@@ -37,7 +37,11 @@ export const LeadForm = () => {
         reset()
       }
     } catch (error) {
-      console.log(error)
+      toast({
+        title: 'Erro ao enviar os dados',
+        description: `${error}`,
+        status: 'error',
+      })
     } finally {
       setIsLoading(false)
     }
@@ -68,7 +72,9 @@ export const LeadForm = () => {
           placeholder="(00) 00000-0000"
           maxLength={15}
           onInput={(e) => {
-            e.currentTarget.value = formatPhoneNumber(e.currentTarget.value)
+            e.currentTarget.value = formatPhoneNumber(
+              e.currentTarget.value.replace(/\D/g, '')
+            )
           }}
           required
           {...register('number')}
@@ -83,7 +89,7 @@ export const LeadForm = () => {
           {...register('email')}
         />
         <Input
-          label="Melhor horário para contato"
+          label="Melhor horário para contato ( Opcional )"
           modeDark
           hasError={!!errors.availableContact}
           placeholder='Ex: "Segunda a Sexta das 8h às 18h"'

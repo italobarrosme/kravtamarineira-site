@@ -21,6 +21,22 @@ export const postCreateLead = async (data: LeadSchema) => {
     body: JSON.stringify(bodyRequest),
   })
 
+  if (!response.ok) {
+    const data = await response.json()
+    getCustomLog({
+      log: `Erro ao tentar cadastrar lead: - ${JSON.stringify(bodyRequest)}`,
+      statusCode: response.status,
+      type: 'error',
+    })
+    getCustomLog({
+      log: `Message: ${data.error.message}`,
+      statusCode: response.status,
+      type: 'error',
+    })
+
+    throw new Error(`${data.error.message}`)
+  }
+
   if (response.ok) {
     try {
       const data = await response.json()
@@ -35,18 +51,13 @@ export const postCreateLead = async (data: LeadSchema) => {
       return data
     } catch (error) {
       getCustomLog({
-        log: `Error ao tentar cadastrar lead: - ${error}`,
+        log: `Error catch ao tentar cadastrar lead: - ${error} - ${JSON.stringify(
+          bodyRequest
+        )}`,
         statusCode: response.status,
         type: 'error',
       })
-      throw new Error(`Erro na requisição: ${error}`)
+      throw new Error(`${error}`)
     }
-  } else {
-    getCustomLog({
-      log: `Erro ao tentar cadastrar lead: - ${response.status}`,
-      statusCode: response.status,
-      type: 'error',
-    })
-    throw new Error(`Erro na requisição: ${response.status}`)
   }
 }

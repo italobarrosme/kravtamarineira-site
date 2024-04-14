@@ -11,8 +11,8 @@ export const leadSchema = z.object({
     .string()
     .max(15, 'Por favor digite um número valido')
     .nonempty('Por favor, digite seu número'),
-  email: z.string().email().nonempty('Por favor, digite seu e-mail'),
-  availableContact: z.string().max(255).optional(),
+  email: z.string().email().optional().or(z.literal('')),
+  availableContact: z.string().max(255).optional().or(z.literal('')),
 })
 
 export type LeadSchema = z.infer<typeof leadSchema>
