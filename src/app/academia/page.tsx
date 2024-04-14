@@ -1,4 +1,5 @@
 import { ShowCase } from '@/modules/Ambiance/components/'
+import { getAmbience } from '@/modules/Ambiance/services'
 import Image from 'next/image'
 
 type Image = {
@@ -45,10 +46,21 @@ const ArrayImagens: Image[] = [
   },
 ]
 
-export default function Academia() {
+export default async function Academia() {
+  const response = await getAmbience()
+
+  const images = response.data.attributes.Academy.data.map((image) => {
+    return {
+      link: image.attributes.url,
+      alt: image.attributes.caption || image.attributes.alternativeText || '',
+    }
+  })
+
   return (
-    <section className="flex min-h-screen w-screen items-center justify-center bg-brand-primary p-10 px-4 ">
-      <ShowCase ArrayImgs={ArrayImagens} />
+    <section className="">
+      <div className="max-w-7xl">
+        <ShowCase ArrayImgs={images} />
+      </div>
     </section>
   )
 }

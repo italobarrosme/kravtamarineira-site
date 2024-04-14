@@ -1,5 +1,3 @@
-// criar uma função que separa os h1 e paragrafos
-
 export const extractTitlesAndParagraph = (data: any) => {
   const titles = data.match(/<h1>(.*?)<\/h1>/g).map((title: string) => {
     return title.replace(/<\/?h1>/g, '')

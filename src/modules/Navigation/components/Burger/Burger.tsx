@@ -25,7 +25,7 @@ export const Burger = forwardRef<HTMLUListElement, BurguerProps>(
     return (
       <nav
         {...props}
-        className="absolute top-0 flex h-20 w-full items-center justify-between gap-2 bg-brand-light px-4 shadow-sm"
+        className="top-0 flex h-20 w-full items-center justify-between gap-2 bg-brand-light px-4 shadow-sm"
       >
         <Link href="/" className="flex items-center gap-4">
           <Image src={logo} alt="logo" width={42} height={42} />

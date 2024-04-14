@@ -14,4 +14,5 @@ export type Schedule = {
   time: string
   duration?: string
   track: string
+  details: string | null
 }

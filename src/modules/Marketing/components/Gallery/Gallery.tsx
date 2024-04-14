@@ -25,9 +25,12 @@ export const Gallery = ({ images, className, children }: GalleryProps) => {
             } min-h-screen-hero w-full transition-opacity duration-300`}
           >
             <Image
-              src={image || 'https://via.placeholder.com/1920x1080'}
+              src={
+                process.env.NEXT_PUBLIC_BASE_URL_UPLOADS + image ||
+                'https://via.placeholder.com/1920x1080'
+              }
               alt={`Slide ${index + 1}`}
-              className="object-cover"
+              className="object-contain"
               fill={true}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />

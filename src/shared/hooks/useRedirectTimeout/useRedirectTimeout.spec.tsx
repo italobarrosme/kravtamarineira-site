@@ -14,7 +14,6 @@ describe('useRedirectTimeout', () => {
 
     renderHook(() => useRedirectTimeout(timeout, redirectPath, redirectFn))
 
-    console.log(window.location.href, 'result')
     vi.advanceTimersByTime(1000)
 
     expect(redirectFn).toBeCalled()

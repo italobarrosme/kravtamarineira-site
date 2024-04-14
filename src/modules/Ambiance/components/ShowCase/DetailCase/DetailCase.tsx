@@ -28,7 +28,7 @@ export const DetailCase = ({ children, image, className }: DetailCaseProps) => {
       <DialogContent className={cn('bg-brand-light w-full', className)}>
         <div className={cn('relative h-96 rounded-lg cursor-pointer')}>
           <Image
-            src={image.link}
+            src={process.env.NEXT_PUBLIC_BASE_URL_UPLOADS + image.link}
             alt={image.alt}
             className="rounded-lg object-fill"
             fill

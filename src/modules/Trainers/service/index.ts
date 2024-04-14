@@ -109,3 +109,41 @@ export const getAllTrainers = async (): Promise<ResponseTrainers> => {
     throw new Error(`Erro na requisição: ${response.status}`)
   }
 }
+
+export const getTextTrainer = async () => {
+  const response = await fetch(`${process.env.BASE_URL_API}/krav-maga`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.TOKEN_JWT}`,
+    },
+    cache: 'no-store',
+  })
+
+  if (response.ok) {
+    try {
+      const data = await response.json()
+      getCustomLog({
+        log: `Texto da pagina dos instrutores retornado com sucesso`,
+        statusCode: response.status,
+        type: 'success',
+      })
+
+      return data
+    } catch (error) {
+      getCustomLog({
+        log: `Erro ao tentar pegar o texto da pagina dos instrutores: - ${error}`,
+        statusCode: response.status,
+        type: 'error',
+      })
+      throw error
+    }
+  } else {
+    getCustomLog({
+      log: `Erro ao tentar pegar o texto da pagina dos instrutores: - ${response.status}`,
+      statusCode: response.status,
+      type: 'error',
+    })
+    throw new Error(`Erro na requisição: ${response.status}`)
+  }
+}

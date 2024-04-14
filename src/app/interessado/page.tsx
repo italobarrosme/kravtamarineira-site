@@ -8,7 +8,7 @@ const textIntro = {
 
 export default function Instrutores() {
   return (
-    <section className="flex min-h-screen-hero flex-col items-center justify-center gap-4 bg-brand-primary p-4 sm:min-w-full">
+    <section>
       <Text variant="h2" className="max-w-2xl text-brand-light">
         {textIntro.title}
       </Text>

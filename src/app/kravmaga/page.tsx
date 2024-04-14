@@ -11,9 +11,12 @@ const mockDataImages = [
 
 export default async function Kravmaga() {
   const data = await getHistoryKravAction()
+
   return (
-    <section className="flex min-h-screen-hero flex-col items-center gap-4 bg-brand-secondary px-4 py-8 text-brand-light">
-      <Text variant="h2">{data.text1.title}</Text>
+    <section className="flex min-h-screen-hero max-w-screen-xl flex-col gap-4 rounded-sm bg-brand-light p-4 text-brand-dark shadow-md">
+      <Text variant="h2" className="max-w-lg text-2xl">
+        {data.text1.title}
+      </Text>
       <div className="mb-8 flex max-w-3xl flex-col gap-4">
         {data.text1.paragraph.map((paragraph: string, index: number) => (
           <Text key={index} variant="p">
@@ -22,14 +25,16 @@ export default async function Kravmaga() {
         ))}
       </div>
 
-      <Text variant="h2">{data.text2.title}</Text>
+      <Text variant="h2" className="max-w-lg text-2xl">
+        {data.text2.title}
+      </Text>
       <div className="mb-32 flex max-w-3xl flex-col gap-4">
         {data.text2.paragraph.map((paragraph: string, index: number) => (
           <Text key={index} variant="p">
             {paragraph}
           </Text>
         ))}
-        <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" />
+        {/* <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" /> */}
       </div>
     </section>
   )

@@ -1,3 +1,4 @@
+import { Text } from '@/shared/components/Text'
 import { Gallery } from '../Gallery'
 
 type infos = {
@@ -16,9 +17,17 @@ export const Hero = ({ infos, images }: HeroProps) => {
     <section className="w-full overflow-hidden">
       <Gallery images={images}></Gallery>
       <div className="min-h-[25rem] rounded-sm bg-brand-primary p-4 text-brand-light">
-        <h1 className="text-2xl font-extrabold">{infos.title}</h1>
-        <p className="text-xs">{infos.subtitle}</p>
-        <p className="mt-4 text-sm">{infos.text}</p>
+        <div className="max-w-7xl ">
+          <Text variant="h1" className="text-3xl font-extrabold">
+            {infos.title}
+          </Text>
+          <Text variant="h2" className="text-xl">
+            {infos.subtitle}
+          </Text>
+          <Text variant="p" className="font-semibold">
+            {infos.text}
+          </Text>
+        </div>
       </div>
     </section>
   )

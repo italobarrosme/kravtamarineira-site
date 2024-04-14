@@ -19,7 +19,7 @@ export const CardTrainer = ({ trainer }: CardTrainerProps) => {
   return (
     <div className="py-4">
       <div className="flex flex-col">
-        <div className="group relative h-96 w-72 cursor-pointer rounded-lg border-[1px] border-solid border-brand-secondary">
+        <div className="group relative h-96 w-72 cursor-pointer rounded-lg border-2 bg-brand-light/90 shadow-md">
           <Image
             src={
               `${process.env.NEXT_PUBLIC_BASE_URL_UPLOADS + trainer.image}` ||
@@ -28,9 +28,9 @@ export const CardTrainer = ({ trainer }: CardTrainerProps) => {
             alt={trainer.name}
             fill={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="rounded-lg shadow-sm"
+            className="rounded-sm shadow-sm"
           />
-          <div className="absolute bottom-0 flex w-full flex-col gap-1 rounded-lg bg-brand-secondary/80 p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
+          <div className="absolute top-0 flex h-96 w-full flex-col gap-1 rounded-lg bg-brand-secondary/80 p-2 font-bold text-brand-light opacity-100 shadow-sm backdrop-blur-sm duration-100 lg:opacity-0 lg:group-hover:opacity-100">
             <Text variant="h6" className="font-bold">
               {trainer.name}
             </Text>
@@ -58,12 +58,15 @@ export const CardTrainer = ({ trainer }: CardTrainerProps) => {
           </div>
         </div>
         <CardInfo isShow={isSchudules} title="Horários">
-          <ul>
+          <ul className="flex flex-col gap-2">
             {trainer.schedules.map((schedule) => (
               <li key={schedule.id}>
-                <Text>{schedule.day}</Text>
-                <Text>{schedule.time}</Text>
-                <Text>{schedule.track}</Text>
+                <div className="rounded-md border-2 p-4">
+                  <Text>{schedule.day}</Text>
+                  <Text>{schedule.time}</Text>
+                  <Text>{schedule.track}</Text>
+                  <Text>{schedule.details}</Text>
+                </div>
               </li>
             ))}
           </ul>

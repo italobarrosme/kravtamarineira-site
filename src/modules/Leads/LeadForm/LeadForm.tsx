@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form'
 import { LeadSchema, leadSchema } from '../schema'
 import { Button } from '@/shared/components/Button'
 import { formatPhoneNumber } from '@/utils/formats'
+import { postCreateLead } from '../services'
+import { useState } from 'react'
 
 export const LeadForm = () => {
   const {
@@ -16,8 +18,19 @@ export const LeadForm = () => {
     resolver: zodResolver(leadSchema),
   })
 
-  function sendData(data: LeadSchema) {
-    console.log(data)
+  const [isLoading, setIsLoading] = useState(false)
+
+  async function sendData(data: LeadSchema) {
+    setIsLoading(true)
+    try {
+      const response = await postCreateLead(data)
+
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -70,8 +83,9 @@ export const LeadForm = () => {
       <div className="flex w-full flex-row-reverse">
         <Button
           variant="outline"
-          onClick={() => console.log('here')}
+          type="submit"
           className="my-2"
+          isLoading={isLoading}
         >
           Enviar meus dados
         </Button>

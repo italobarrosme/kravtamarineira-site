@@ -7,13 +7,13 @@ import { cn } from '@/utils'
 const textStyle = cva([], {
   variants: {
     variant: {
-      h1: 'my-2 text-5xl font-bold',
-      h2: 'my-2 text-4xl font-semibold',
-      h3: 'my-2 text-3xl font-semibold',
-      h4: 'my-2 text-2xl font-semibold',
-      h5: 'my-2 text-xl font-semibold',
-      h6: 'my-2 text-base font-semibold',
-      p: 'break-normal text-sm font-normal',
+      h1: 'my-2 font-bold',
+      h2: 'my-2 font-semibold',
+      h3: 'my-2 font-semibold',
+      h4: 'my-2 font-semibold',
+      h5: 'my-2 font-semibold',
+      h6: 'my-2 font-semibold',
+      p: 'break-normal text-base font-normal',
       small: 'text-xs',
       label: 'my-2 text-sm font-semibold',
     },
@@ -48,7 +48,7 @@ type TextProps = {
 
 export const Text = ({
   children,
-  variant = 'p',
+  variant = 'h1',
   className,
   ...props
 }: TextProps) => {
