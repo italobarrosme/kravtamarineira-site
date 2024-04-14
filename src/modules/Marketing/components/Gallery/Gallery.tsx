@@ -30,9 +30,7 @@ export const Gallery = ({ images, className, children }: GalleryProps) => {
                 'https://via.placeholder.com/1920x1080'
               }
               alt={`Slide ${index + 1}`}
-              className="object-contain"
               fill={true}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         ))
@@ -45,7 +43,6 @@ export const Gallery = ({ images, className, children }: GalleryProps) => {
             alt={`Slide default`}
             className="object-cover"
             fill={true}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}

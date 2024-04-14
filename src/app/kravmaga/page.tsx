@@ -2,13 +2,6 @@ import { Text } from '@/shared/components/Text'
 import Image from 'next/image'
 import { getHistoryKravAction } from '@/modules/HistoryKrav/services/actions'
 
-const mockDataImages = [
-  'https://source.unsplash.com/random/1920x1080/',
-  'https://source.unsplash.com/random/1920x1080/?25',
-  'https://source.unsplash.com/random/1920x1080/?23',
-  'https://source.unsplash.com/random/1920x1080/?85',
-]
-
 export default async function Kravmaga() {
   const data = await getHistoryKravAction()
 
@@ -17,6 +10,7 @@ export default async function Kravmaga() {
       <Text variant="h2" className="max-w-lg text-2xl">
         {data.text1.title}
       </Text>
+
       <div className="mb-8 flex max-w-3xl flex-col gap-4">
         {data.text1.paragraph.map((paragraph: string, index: number) => (
           <Text key={index} variant="p">
@@ -24,17 +18,23 @@ export default async function Kravmaga() {
           </Text>
         ))}
       </div>
+      <Image
+        src={data.images[0]}
+        width={500}
+        height={500}
+        alt="movimento de golpe"
+      />
 
       <Text variant="h2" className="max-w-lg text-2xl">
         {data.text2.title}
       </Text>
+      <Image src={data.images[1]} width={500} height={500} alt="Ime fotos" />
       <div className="mb-32 flex max-w-3xl flex-col gap-4">
         {data.text2.paragraph.map((paragraph: string, index: number) => (
           <Text key={index} variant="p">
             {paragraph}
           </Text>
         ))}
-        {/* <Image src={mockDataImages[0]} width={1920} height={1080} alt="teste" /> */}
       </div>
     </section>
   )

@@ -4,7 +4,12 @@ export const extractTitlesAndParagraph = (data: any) => {
   })
 
   const paragraphs = data.match(/<p>(.*?)<\/p>/g).map((paragraph: string) => {
+    paragraph = paragraph.replace(/<img.*?>/g, '')
     return paragraph.replace(/<\/?p>/g, '')
+  })
+
+  const img = data.match(/<img src="(.*?)"/g).map((img: string) => {
+    return img.replace(/<img src="/g, '')
   })
 
   return {
@@ -16,5 +21,8 @@ export const extractTitlesAndParagraph = (data: any) => {
       title: titles[1],
       paragraph: paragraphs.slice(11, 22),
     },
+    images: img.map((img: string) => {
+      return img.replace(/"/g, '')
+    }),
   }
 }
