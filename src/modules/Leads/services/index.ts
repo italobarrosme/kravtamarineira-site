@@ -4,20 +4,30 @@ import { getCustomLog } from '@/utils/logs/logs'
 import { LeadSchema } from '../schema'
 
 export const postCreateLead = async (data: LeadSchema) => {
+  const bodyRequest = {
+    data: {
+      Name: data.name,
+      Email: data.email,
+      Phone: data.number,
+    },
+  }
+
   const response = await fetch(`${process.env.BASE_URL_API}/leads`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.TOKEN_JWT}`,
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(bodyRequest),
   })
 
   if (response.ok) {
     try {
       const data = await response.json()
       getCustomLog({
-        log: `Cadastro de lead realizado com sucesso: - ${data}`,
+        log: `Cadastro de lead realizado com sucesso: - ${JSON.stringify(
+          bodyRequest
+        )}`,
         statusCode: response.status,
         type: 'success',
       })

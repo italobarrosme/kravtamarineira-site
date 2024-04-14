@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { Navigation } from '@/modules/Navigation'
 import { FooterTemplate } from '@/modules/Navigation/template/FooterTemplate'
 import { Nunito } from 'next/font/google'
+import { ToastProvider } from '@/providers/toast'
 
 type Props = {
   children?: ReactNode
@@ -27,9 +28,11 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={nunito.className}>
       <body className="flex flex-col">
-        <Navigation />
-        <main>{children}</main>
-        <FooterTemplate />
+        <ToastProvider>
+          <Navigation />
+          <main>{children}</main>
+          <FooterTemplate />
+        </ToastProvider>
       </body>
     </html>
   )

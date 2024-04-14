@@ -9,7 +9,7 @@ const textIntro = {
 export default function Instrutores() {
   return (
     <section>
-      <Text variant="h2" className="max-w-2xl text-brand-light">
+      <Text variant="h2" className="max-w-2xl text-3xl text-brand-light">
         {textIntro.title}
       </Text>
       <Text variant="p" className="text-brand-light">
