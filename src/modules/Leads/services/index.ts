@@ -7,7 +7,7 @@ export const postCreateLead = async (data: LeadSchema) => {
   const bodyRequest = {
     data: {
       Name: data.name,
-      Email: data.email,
+      Email: data.email ? data.email : undefined,
       Phone: data.number,
     },
   }
